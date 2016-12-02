@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.TankInController">
+   <center>
+      <VBox prefHeight="100.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+         <children>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                <Button fx:id="addTank" mnemonicParsing="false" onAction="#newTankAdd" text="NEW" />
+                  <Button fx:id="f5" mnemonicParsing="false" onAction="#loadDatabaseData" text="새로고침" />
+                  <Button fx:id="update" mnemonicParsing="false" onAction="#UpdTankInNomal" text="수정" />
+               </items>
+            </ToolBar>
+            <GridPane prefHeight="188.0" prefWidth="1678.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="81.0" percentWidth="0.0" prefWidth="90.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="166.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" percentWidth="0.0" prefWidth="87.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="171.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="100.0" percentWidth="0.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="100.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="638.0" minWidth="10.0" percentWidth="0.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="150.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="638.0" minWidth="10.0" percentWidth="0.0" prefWidth="57.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" percentWidth="0.0" prefWidth="153.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="tankNoBox" maxWidth="150.0" prefHeight="27.0" prefWidth="240.0" promptText="TankNo." GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <ComboBox fx:id="customerComBoBox" editable="true" maxWidth="150.0" prefWidth="150.0" promptText="Customer" GridPane.columnIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <TextField fx:id="lastCargoBox" maxWidth="150.0" promptText="Last Cargo Name" GridPane.columnIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <ComboBox fx:id="sortComBoBox" editable="true" prefWidth="150.0" GridPane.columnIndex="7" />
+                  <DatePicker fx:id="inDateBox" maxWidth="150.0" prefHeight="23.0" prefWidth="148.0" promptText="Date In" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="capacityBox" maxWidth="150.0" prefHeight="27.0" prefWidth="240.0" promptText="Capacity" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextField fx:id="tareWeightBox" maxWidth="150.0" prefHeight="27.0" prefWidth="240.0" promptText="Tare Weight" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <TextField fx:id="mgwBox" maxWidth="150.0" prefHeight="27.0" prefWidth="240.0" promptText="Max Gross Weight" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                  <TextField fx:id="mfdBox" maxWidth="150.0" prefHeight="27.0" prefWidth="240.0" promptText="M.F.D" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="l2_5yrBox" maxWidth="150.0" prefHeight="27.0" prefWidth="240.0" promptText="Last 2.5 year Test" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <TextField fx:id="l5yrBox" maxWidth="150.0" promptText="Last 5 year Test" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="testComBoBox" maxWidth="150.0" opacity="0.5" prefWidth="150.0" promptText="Test" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="airlineComBoBox" editable="true" prefWidth="150.0" promptText="Air valve type" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="topComBoBox" editable="true" prefWidth="150.0" promptText="Top valve type" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="frameComBoBox" editable="true" prefWidth="150.0" promptText="Frame Type" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="gaugeComBoBox" editable="true" prefWidth="150.0" promptText="Gauge" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="walkWayComBoBox" editable="true" prefWidth="150.0" promptText="Walkway" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </ComboBox>
+                  <ComboBox fx:id="bottomComBoBox" editable="true" prefWidth="150.0" promptText="Bottom valve type" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="documentComBoBox" editable="true" prefWidth="150.0" promptText="Document Box" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                  <ComboBox fx:id="spillBoxComBoBox" editable="true" prefWidth="150.0" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                  <Label prefHeight="15.0" prefWidth="68.0" text="TankNo." />
+                  <Label text="Capacity" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label text="Last 2.5yr test" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label text="Airline Valve" GridPane.rowIndex="3" />
+                  <Label text="Walkway" GridPane.rowIndex="4" />
+                  <Label text="Customer" GridPane.columnIndex="2" />
+                  <Label text="Tare Weight" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Label text="Last 5yr test" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <Label text="Top Valve" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label prefHeight="37.0" prefWidth="77.0" text="Bottom value" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label text="Last Cargo" GridPane.columnIndex="4" />
+                  <Label text="MGW" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                  <Label text="Test" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                  <Label text="Frame" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <Label text="Document box" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <Label text="Date in" GridPane.rowIndex="1" />
+                  <Label text="MFD" GridPane.rowIndex="2" />
+                  <Label text="Gauge" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                  <Label text="Sort" GridPane.columnIndex="6" />
+                  <Label prefHeight="15.0" prefWidth="66.0" text="Spillbox" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" top="20.0" />
+               </VBox.margin>
+            </GridPane>
+            <GridPane maxHeight="93.0" maxWidth="987.0" prefHeight="60.0" prefWidth="987.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="111.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1561.0" minWidth="10.0" prefWidth="372.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1561.0" minWidth="10.0" prefWidth="109.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="447.0" minWidth="10.0" percentWidth="0.0" prefWidth="392.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="60.0" minHeight="60.0" percentHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Remark(고객사용)" />
+                  <TextArea fx:id="remarkCustomerBox" prefHeight="60.0" prefWidth="373.0" GridPane.columnIndex="1" />
+                  <Label text="Remakr(회사용)" GridPane.columnIndex="2">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextArea fx:id="remarkCompanyBox" GridPane.columnIndex="3" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </GridPane>
+            <Separator prefWidth="200.0" />
+            <TableView fx:id="table" onKeyReleased="#showonClick" onMouseClicked="#showonClick" prefHeight="434.0" prefWidth="1686.0" tableMenuButtonVisible="true">
+              <columns>
+                  <TableColumn fx:id="noCol" prefWidth="75.0" text="No." />
+                <TableColumn fx:id="IdCol" prefWidth="44.000030517578125" text="ID" visible="false" />
+                <TableColumn fx:id="userIdCol" prefWidth="106.0" text="Customer" />
+                  <TableColumn fx:id="faketankNoCol" prefWidth="75.0" text="Tank No." />
+                  <TableColumn fx:id="tankNoCol" prefWidth="0.0" text="Tank No." visible="false" />
+                  <TableColumn fx:id="lastCargoCol" prefWidth="75.0" text="Last Cargo" />
+                  <TableColumn fx:id="inDateCol" prefWidth="94.0" text="In-Date" />
+                  <TableColumn fx:id="sortCol" prefWidth="69.0" text="Sort" />
+                  <TableColumn fx:id="capaCityCol" prefWidth="78.0" text="Capacity" />
+                  <TableColumn fx:id="tareWeightCol" prefWidth="59.0" text="Tare Weight" />
+                  <TableColumn fx:id="mgwCol" prefWidth="75.0" text="MGW" />
+                  <TableColumn fx:id="mfdCol" prefWidth="75.0" text="MFD" />
+                  <TableColumn prefWidth="75.0" text="TEST">
+                     <columns>
+                        <TableColumn fx:id="l2_5YrCol" prefWidth="75.0" text="L2.5 test" />
+                        <TableColumn fx:id="l5YrCol" prefWidth="75.0" text="L5 TEst" />
+                        <TableColumn fx:id="lastTestCol" prefWidth="75.0" text="L Test" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="pTestCol" prefWidth="75.0" text="주기검사" />
+                  <TableColumn fx:id="remarkCustomerCol" prefWidth="200.0" text="Remark(고객사용)" />
+                  <TableColumn fx:id="remarkCompanyCol" prefWidth="200.0" text="Remark(회사용)" />
+                  <TableColumn fx:id="urgentCol" prefWidth="0.0" text="Column X" visible="false" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem fx:id="urgentCleaning" mnemonicParsing="false" text="긴급 크리닝 " />
+                        <MenuItem fx:id="otherCleaning" mnemonicParsing="false" text="크리닝 " />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

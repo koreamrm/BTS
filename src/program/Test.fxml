@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="645.0" prefWidth="1581.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.TestController">
+   <center>
+      <VBox prefHeight="645.0" prefWidth="1532.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="17.0" prefWidth="1686.0">
+               <children>
+                  <ComboBox fx:id="testBeforeEst" editable="true" prefWidth="150.0" />
+                  <Button fx:id="testBefore_afterExchangeButton" mnemonicParsing="false" onAction="#loadingToghter" text="전환" />
+                  <DatePicker fx:id="beforeEstDate" promptText="견적서 날자" />
+                  <DatePicker fx:id="afterEstDate" promptText="승인 날짜" />
+                  <Button fx:id="testEstButton" mnemonicParsing="false" onAction="#beforeEstDateEdit" text="수정" />
+                  <Button fx:id="makeingEstTestingButton" mnemonicParsing="false" text="견적서 작성" />
+               </children>
+            </HBox>
+            
+                        <TableView fx:id="testtable" onKeyReleased="#showonClickTestPage1" onMouseClicked="#showonClickTestPage1" prefHeight="266.0" prefWidth="1686.0" tableMenuButtonVisible="true">
+              <columns>
+                  <TableColumn fx:id="testnoCol" prefWidth="35.0" text="No." />
+                <TableColumn fx:id="testIdCol" prefWidth="75.0" text="ID" visible="false" />
+                  <TableColumn fx:id="testownerCol" prefWidth="75.0" text="Owner" />
+                <TableColumn fx:id="testuserIdCol" prefWidth="75.0" text="Customer" />
+                  <TableColumn fx:id="testtankNoCol" prefWidth="75.0" text="Tank No." />
+                  <TableColumn fx:id="testlastCargoCol" prefWidth="75.0" text="Last cargo" />
+                  <TableColumn fx:id="testinDateCol" prefWidth="75.0" text="In Date" />
+                  <TableColumn fx:id="testsortCol" prefWidth="75.0" text="Sort" />
+                  <TableColumn prefWidth="75.0" text="TEST">
+                     <columns>
+                        <TableColumn fx:id="testmfdCol" prefWidth="75.0" text="MFD" />
+                        <TableColumn fx:id="testl2_5YrCol" prefWidth="75.0" text="L2.5yr" />
+                        <TableColumn fx:id="testl5YrCol" prefWidth="75.0" text="L5yr" />
+                        <TableColumn fx:id="testlastTestCol" prefWidth="75.0" text="Last test" visible="false" />
+                        <TableColumn fx:id="testpTestCol" prefWidth="75.0" text="TEST" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="testCompanyCol" prefWidth="75.0" text="검사업체" />
+                  <TableColumn fx:id="testEstDateCol" prefWidth="75.0" text="견적서 날짜" />
+                  <TableColumn fx:id="testEstAppCol" prefWidth="75.0" text="승인날짜" />
+                  <TableColumn fx:id="testExtDateCol" prefWidth="75.0" text="출고예정일" />
+                  <TableColumn fx:id="testTestComCol" prefWidth="75.0" text="테스트완료" visible="false" />
+                  <TableColumn fx:id="testAirTestComCol" prefWidth="75.0" text="에어테스트" visible="false" />
+                  <TableColumn fx:id="testCleaningComCol" prefWidth="75.0" text="크리닝" visible="false" />
+                  <TableColumn fx:id="testRepairComCol" prefWidth="75.0" text="수리" visible="false" />
+                  <TableColumn fx:id="testremarkCustomerCol" prefWidth="200.0" text="Remark(고객사용)" />
+                  <TableColumn fx:id="testremarkCompanyCol" prefWidth="200.0" text="Remark(회사용)" />
+              </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                        <Menu mnemonicParsing="false" text="Unspecified Menu">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                          </items>
+                        </Menu>
+                        <Menu fx:id="pTestmenu" mnemonicParsing="false" text="주기검사 수정">
+                          <items>
+                              <MenuItem fx:id="menuNon" mnemonicParsing="false" onAction="#testPtestToNon" text="Non" />
+                              <MenuItem fx:id="menu25yr" mnemonicParsing="false" onAction="#testPtestTo25YR" text="2.5YR" />
+                              <MenuItem fx:id="menu5yr" mnemonicParsing="false" onAction="#testPtestTo5YR" text="5YR" />
+                          </items>
+                        </Menu>
+                        <Menu fx:id="testCompanymenu" mnemonicParsing="false" onAction="#testCompanyEdit" onMenuValidation="#testCompanyEdit" text="주기검사 업체 수정">
+                           <items>
+                            <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <ComboBox fx:id="pTestCompany" editable="true" onAction="#testCompanyEdit" prefWidth="150.0" />
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                        <Menu fx:id="testCompanymenu1" mnemonicParsing="false" onAction="#testCompanyEdit" onMenuValidation="#testCompanyEdit" text="오너 수정">
+                           <items>
+                              <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <ComboBox fx:id="testOwnerCompany" editable="true" onAction="#testOwnerEdit" prefWidth="150.0" />
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

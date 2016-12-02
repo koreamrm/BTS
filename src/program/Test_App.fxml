@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="653.0" prefWidth="1621.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="program.Test_AppController">
+   <center>
+      <VBox prefHeight="653.0" prefWidth="1723.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="17.0" prefWidth="1686.0">
+               <children>
+                  <Label text="승인" />
+               </children>
+            </HBox>
+            
+                        <TableView fx:id="testtable" onKeyReleased="#showonClickTestPage1" onMouseClicked="#showonClickTestPage1" prefHeight="447.0" prefWidth="468.0">
+              <columns>
+                  <TableColumn fx:id="testnoCol" prefWidth="75.0" text="No." />
+                <TableColumn fx:id="testIdCol" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="testownerCol" prefWidth="75.0" text="Owner" />
+                <TableColumn fx:id="testuserIdCol" prefWidth="75.0" text="Customer" />
+                  <TableColumn fx:id="testtankNoCol" prefWidth="75.0" text="Tank No." />
+                  <TableColumn fx:id="testlastCargoCol" prefWidth="75.0" text="Last cargo" />
+                  <TableColumn fx:id="testinDateCol" prefWidth="75.0" text="In Date" />
+                  <TableColumn fx:id="testsortCol" prefWidth="75.0" text="Sort" />
+                  <TableColumn prefWidth="75.0" text="TEST">
+                     <columns>
+                        <TableColumn fx:id="testmfdCol" prefWidth="75.0" text="MFD" />
+                        <TableColumn fx:id="testl2_5YrCol" prefWidth="75.0" text="L2.5yr" />
+                        <TableColumn fx:id="testl5YrCol" prefWidth="75.0" text="L5yr" />
+                        <TableColumn fx:id="testlastTestCol" prefWidth="75.0" text="Last test" />
+                        <TableColumn fx:id="testpTestCol" prefWidth="75.0" text="TEST" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="testCompanyCol" prefWidth="75.0" text="검사업체" />
+                  <TableColumn fx:id="testEstDateCol" prefWidth="75.0" text="견적서 날짜" />
+                  <TableColumn fx:id="testEstAppCol" prefWidth="75.0" text="승인날짜" />
+                  <TableColumn fx:id="testExtDateCol" prefWidth="75.0" text="출고예정일" />
+                  <TableColumn fx:id="testTestComCol" prefWidth="75.0" text="테스트완료" />
+                  <TableColumn fx:id="testAirTestComCol" prefWidth="75.0" text="에어테스트" />
+                  <TableColumn fx:id="testCleaningComCol" prefWidth="75.0" text="크리닝" />
+                  <TableColumn fx:id="testRepairComCol" prefWidth="75.0" text="수리" />
+                  <TableColumn fx:id="testremarkCustomerCol" prefWidth="75.0" text="Remark(고객사용)" />
+                  <TableColumn fx:id="testremarkCompanyCol" prefWidth="75.0" text="Remark(회사용)" />
+              </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                        <MenuItem fx:id="testComByToday" mnemonicParsing="false" text="Unspecified Action" />
+                        <MenuItem mnemonicParsing="false" text="Unspecified Action">
+                           <graphic>
+                              <DatePicker fx:id="testComByDate" />
+                           </graphic>
+                        </MenuItem>
+                        <Menu fx:id="pTestmenu" mnemonicParsing="false" text="주기검사 수정">
+                          <items>
+                              <MenuItem fx:id="menuNon" mnemonicParsing="false" onAction="#testPtestToNon" text="Non" />
+                              <MenuItem fx:id="menu25yr" mnemonicParsing="false" onAction="#testPtestTo25YR" text="2.5YR" />
+                              <MenuItem fx:id="menu5yr" mnemonicParsing="false" onAction="#testPtestTo5YR" text="5YR" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="주기검사 업체 수정">
+                           <items>
+                            <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <ComboBox fx:id="pTestCompany" editable="true" onAction="#testCompanyEdit" prefWidth="150.0" />
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="오너 수정">
+                           <items>
+                              <MenuItem mnemonicParsing="false">
+                                 <graphic>
+                                    <ComboBox fx:id="testOwnerCompany" editable="true" onAction="#testOwnerEdit" prefWidth="150.0" />
+                                 </graphic>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
